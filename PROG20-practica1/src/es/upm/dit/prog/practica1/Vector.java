@@ -14,7 +14,7 @@ public class Vector {
 		this.z = z;
 	}
 	
-	// Métodos accesores
+	// Metodos accesores
 	public double getX() {
 		return this.x;
 	}
@@ -25,7 +25,7 @@ public class Vector {
 		return this.z;
 	}
 	
-	// Métodos modificadores
+	// Metodos modificadores
 	public void setX(double x) {
 		this.x = x;
 	}
@@ -36,7 +36,7 @@ public class Vector {
 		this.z = z;
 	}
 	
-	// Métodos equals y toString
+	// Metodos equals y toString
 	@Override
 	public String toString() {
 		return "Vector [x=" + x + ", y=" + y + ", z=" + z + "]";
@@ -72,12 +72,12 @@ public class Vector {
 		return true;
 	}
 	
-	// Método módulo
+	// Metodo modulo
 	public double modulo() {
 		return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2) + Math.pow(this.z, 2));
 	}
 	
-	// Método distancia
+	// Metodo distancia
 	public double distancia(Vector pos) {
 		double auxX = pos.x - this.x;
 		double auxY = pos.y - this.y;
