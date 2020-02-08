@@ -74,9 +74,25 @@ public class Aeronave {
 	
 	// getVelocidad
 	public Vector getVelocidad() {
-		
-		Vector vectorVelocidad = new Vector(id);
-		
-		return
+		if (this.t == this.t0) {
+			return new Vector (0.0, 0.0, 0.0);
+		} else {
+			// Vector desplazamiento
+			Vector r = new Vector((this.pos.getX()-this.pos0.getX()), (this.pos.getY()-this.pos0.getY()), (this.pos.getZ()-this.pos0.getZ()));
+			double tTranscurrido = this.t - this.t0;
+			return new Vector ((r.getX()/tTranscurrido), (r.getY()/tTranscurrido), (r.getZ()/tTranscurrido));
+		}
 	}
+	
+	// mover
+	public void mover(Vector pos, double t) {
+		if (t != this.t) {
+			this.pos0 = this.pos;
+			this.t0 = this.t;
+			this.pos = pos;
+			this.t = t;
+		}
+	}
+	
+	
 }
