@@ -20,10 +20,10 @@ public class Aeronave {
 	
 	// Metodos modificadores
 	public void setId(String id) {
-		
+		this.id = id;
 	}
 	public void setPos(Vector pos) {
-		
+		this.pos = pos;
 	}
 	
 	// Metodos accesores
@@ -91,6 +91,8 @@ public class Aeronave {
 			this.t0 = this.t;
 			this.pos = pos;
 			this.t = t;
+		} else {
+			this.pos = pos;
 		}
 	}
 	

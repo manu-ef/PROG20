@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 public class PruebaAeronave11 {
 	
 	public void testAeronave() {
+		System.out.println("-----TEST AERONAVE-----");
 		Vector pos0 = new Vector(0,0,0);
 		int t = 0;
 		Aeronave a = new Aeronave ("A01", pos0, t, pos0, t);
@@ -25,6 +26,7 @@ public class PruebaAeronave11 {
 	}
 	
 	public void testEquals () {
+		System.out.println("-----TEST EQUALS-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Aeronave a1 = new Aeronave ("A01", pos0, t, pos0, t);
@@ -41,6 +43,8 @@ public class PruebaAeronave11 {
 	}
 	
 	public void testMover() {
+		System.out.println("-----TEST MOVER-----");
+		
 		// mover en el mismo tiempo
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
@@ -67,6 +71,7 @@ public class PruebaAeronave11 {
 	}
 	
 	public void testVelocidad() {
+		System.out.println("-----TEST VELOCIDAD-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (10, 10, 10);
