@@ -2,6 +2,10 @@ package es.upm.dit.prog.practica2;
 
 public class Aeronave {
 	
+	// Constantes
+	private static final double MINIMAL_DISTANCE = 50;
+	private static final double SAFETY_HEIGHT = 200;
+	
 	// Definicion de variables
 	private String id;
 	private Vector pos0;
@@ -96,5 +100,37 @@ public class Aeronave {
 		}
 	}
 	
+	// mover 2
+	public void mover(double t) {
+		if (t == this.t) {
+			return;
+		} else {
+			double tTranscurrido = t - this.t;
+			Vector posEnT = new Vector((this.getVelocidad().getX() * tTranscurrido) + this.pos.getX(), (this.getVelocidad().getY() * tTranscurrido) + this.pos.getY(), (this.getVelocidad().getZ() * tTranscurrido) + this.pos.getZ());
+			mover(posEnT, t);
+		}
+	}
+	
+	public boolean compatibleCon(Vector pos, double t) {
+		Aeronave compatible = new Aeronave (this.id, this.pos0, this.t0, this.pos, this.t);
+		mover(t);
+		double distancia = compatible.getPos().distancia(pos);
+		return distancia < MINIMAL_DISTANCE;
+	}
+	
+	public boolean amenazadaPor(Aeronave otra) {
+		if (otra == null) {
+			return false;
+		} else {
+			Aeronave aeronaveFutura = new Aeronave (this.id, this.pos0, this.t0, this.pos, this.t);
+			aeronaveFutura.mover(this.t+30);
+			Vector posActualThis = new Vector (this.getPos().getX(),this.getPos().getY(), 0);
+			Vector posActualOtra = new Vector (otra.getPos().getX(), otra.getPos().getY(), 0);
+			Vector posAeronaveFutura = new Vector (aeronaveFutura.getPos().getX(), aeronaveFutura.getPos().getY(), aeronaveFutura.getPos().getZ());
+			boolean elipse = ((posActualOtra.distancia(posAeronaveFutura) + posActualOtra.distancia(posActualThis)) < (2 * posActualThis.distancia(posAeronaveFutura)));
+			boolean altura = Math.abs(this.pos.getZ()-otra.pos.getZ()) < SAFETY_HEIGHT;
+			return elipse && altura;
+		}
+	}
 	
 }

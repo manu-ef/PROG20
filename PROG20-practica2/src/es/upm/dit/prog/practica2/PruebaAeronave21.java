@@ -106,7 +106,8 @@ public class PruebaAeronave21 {
 	public PruebaAeronave21() {
 	}
 	
-	public void testMover2() {	
+	public void testMover2() {
+		System.out.println("-----TEST MOVER 2-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (10, 10, 10);
@@ -129,6 +130,7 @@ public class PruebaAeronave21 {
 	}
 	
 	public void testCompatible() {
+		System.out.println("-----TEST COMPATIBLE-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (100, 100, 100);
@@ -157,6 +159,7 @@ public class PruebaAeronave21 {
 	}
 	
 	public void testCompatible2() {
+		
 		// vel > 0
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
@@ -191,6 +194,7 @@ public class PruebaAeronave21 {
 	}
 	
 	public void testAmenazadaPor() {
+		System.out.println("-----TEST AMENAZADA POR-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (100, 100, 200);
@@ -209,6 +213,7 @@ public class PruebaAeronave21 {
 	
 	public void testAmenazadaPor2() {
 		// v=10,10,10
+		System.out.println("-----TEST AMENAZADA POR 2 -----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (100, 100, 100);
