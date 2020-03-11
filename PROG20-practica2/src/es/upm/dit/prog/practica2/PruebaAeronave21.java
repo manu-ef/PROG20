@@ -106,7 +106,8 @@ public class PruebaAeronave21 {
 	public PruebaAeronave21() {
 	}
 	
-	public void testMover2() {	
+	public void testMover2() {
+		System.out.println("-----TEST MOVER 2-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (10, 10, 10);
@@ -129,6 +130,7 @@ public class PruebaAeronave21 {
 	}
 	
 	public void testCompatible() {
+		System.out.println("-----TEST COMPATIBLE-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (100, 100, 100);
@@ -157,6 +159,7 @@ public class PruebaAeronave21 {
 	}
 	
 	public void testCompatible2() {
+		
 		// vel > 0
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
@@ -191,6 +194,7 @@ public class PruebaAeronave21 {
 	}
 	
 	public void testAmenazadaPor() {
+		System.out.println("-----TEST AMENAZADA POR-----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (100, 100, 200);
@@ -209,6 +213,7 @@ public class PruebaAeronave21 {
 	
 	public void testAmenazadaPor2() {
 		// v=10,10,10
+		System.out.println("-----TEST AMENAZADA POR 2 -----");
 		int t = 0;
 		Vector pos0 = new Vector(0,0,0);
 		Vector pos1 = new Vector (100, 100, 100);
@@ -220,7 +225,8 @@ public class PruebaAeronave21 {
 		Aeronave a2 = new Aeronave ("A02", pos0, t-10, pos2, t);
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
 				+ "\n***correcto=" + (!a1.amenazadaPor(a2)));
-		// limite futuro 550,550,z+-200 
+		// limite futuro 550,550,z+-200
+		System.out.println("LIMITE FUTURO");
 		pos2 = new Vector(500,500,200);
 		a2 = new Aeronave("A02", pos0, t-10, pos2, t);
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
@@ -230,6 +236,7 @@ public class PruebaAeronave21 {
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
 				+ "\n***correcto=" + (!a1.amenazadaPor(a2)));
 		// limite pasado -50,-50,z+-200
+		System.out.println("LIMITE PASADO");
 		pos2 = new Vector(-50,-40,200);
 		a2 = new Aeronave("A02", pos0, t-10, pos2, t);
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
