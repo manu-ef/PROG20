@@ -113,7 +113,7 @@ public class Aeronave {
 	
 	public boolean compatibleCon(Vector pos, double t) {
 		Aeronave compatible = new Aeronave (this.id, this.pos0, this.t0, this.pos, this.t);
-		mover(t);
+		compatible.mover(t);
 		double distancia = compatible.getPos().distancia(pos);
 		return distancia < MINIMAL_DISTANCE;
 	}
@@ -123,10 +123,10 @@ public class Aeronave {
 			return false;
 		} else {
 			Aeronave aeronaveFutura = new Aeronave (this.id, this.pos0, this.t0, this.pos, this.t);
-			aeronaveFutura.mover(this.t+30);
-			Vector posActualThis = new Vector (this.getPos().getX(),this.getPos().getY(), 0);
-			Vector posActualOtra = new Vector (otra.getPos().getX(), otra.getPos().getY(), 0);
-			Vector posAeronaveFutura = new Vector (aeronaveFutura.getPos().getX(), aeronaveFutura.getPos().getY(), aeronaveFutura.getPos().getZ());
+			aeronaveFutura.mover(this.t + 30);
+			Vector posActualThis = new Vector (this.pos.getX(),this.pos.getY(), 0);
+			Vector posActualOtra = new Vector (otra.pos.getX(), otra.pos.getY(), 0);
+			Vector posAeronaveFutura = new Vector (aeronaveFutura.pos.getX(), aeronaveFutura.pos.getY(), 0);
 			boolean elipse = ((posActualOtra.distancia(posAeronaveFutura) + posActualOtra.distancia(posActualThis)) < (2 * posActualThis.distancia(posAeronaveFutura)));
 			boolean altura = Math.abs(this.pos.getZ()-otra.pos.getZ()) < SAFETY_HEIGHT;
 			return elipse && altura;

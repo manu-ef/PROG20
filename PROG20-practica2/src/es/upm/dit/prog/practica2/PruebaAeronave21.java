@@ -225,7 +225,8 @@ public class PruebaAeronave21 {
 		Aeronave a2 = new Aeronave ("A02", pos0, t-10, pos2, t);
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
 				+ "\n***correcto=" + (!a1.amenazadaPor(a2)));
-		// limite futuro 550,550,z+-200 
+		// limite futuro 550,550,z+-200
+		System.out.println("LIMITE FUTURO");
 		pos2 = new Vector(500,500,200);
 		a2 = new Aeronave("A02", pos0, t-10, pos2, t);
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
@@ -235,6 +236,7 @@ public class PruebaAeronave21 {
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
 				+ "\n***correcto=" + (!a1.amenazadaPor(a2)));
 		// limite pasado -50,-50,z+-200
+		System.out.println("LIMITE PASADO");
 		pos2 = new Vector(-50,-40,200);
 		a2 = new Aeronave("A02", pos0, t-10, pos2, t);
 		System.out.println("testAmenazadaPor2 " + a1 + " " + a2
