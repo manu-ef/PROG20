@@ -39,7 +39,7 @@ public class PruebaTorreControl31 {
 		}
 	}
 	
-
+/*
 	public void testAddGetAeronaves(){
 		try {
 			TorreControl tc = new TorreControl();
@@ -149,14 +149,14 @@ public class PruebaTorreControl31 {
 			System.out.println("Fallo detectado en testGetAmenazadas " + e);
 		}
 	}
-	
+*/	
 	public static void main(String[] args) {
 		PruebaTorreControl31 p = new PruebaTorreControl31();
 		p.testAddAeronave();
-		p.testAddGetAeronaves();
-		p.testAddGetAeronaves2();
-		p.testAddDeteccion();
-		p.testGetAmenazadas();
+//		p.testAddGetAeronaves();
+//		p.testAddGetAeronaves2();
+//		p.testAddDeteccion();
+//		p.testGetAmenazadas();
 	}
 
 
