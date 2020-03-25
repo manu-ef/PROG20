@@ -33,6 +33,7 @@ public class PruebaComplejo {
 		System.out.println(cs[2].multiplica(cs[3]));
 		System.out.println(cs[3].multiplica(cs[3]));
 		
+		/*
 		System.out.println(cs[0].divide(cs[0]));
 		System.out.println(cs[0].divide(cs[1]));
 		System.out.println(cs[0].divide(cs[2]));
@@ -49,7 +50,7 @@ public class PruebaComplejo {
 		
 		System.out.println(cs[1].divide(cs[3]).multiplica(cs[2]));
 		System.out.println(cs[1].divide(cs[3].multiplica(cs[2])));
-		
+		*/
 		
 	}
 
