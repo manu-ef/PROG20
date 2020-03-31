@@ -16,6 +16,11 @@ public class PruebaBejeweled {
 							};
 		Bejeweled b = new Bejeweled (tablero);
 		System.out.println(b);
+		
+		for (int i = 0; i < tablero.length; i++) {
+			System.out.println("fila " + i + "maxiguales " + b.maxIguales(i)); 
+		}
+		
 		b.actualizar();
 		System.out.println(b);
 		

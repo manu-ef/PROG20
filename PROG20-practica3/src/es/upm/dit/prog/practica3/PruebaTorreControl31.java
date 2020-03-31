@@ -18,6 +18,7 @@ public class PruebaTorreControl31 {
 
 	public void testAddAeronave(){
 		try {
+			System.out.println("-----testAddAeronave-----");
 			TorreControl tc = new TorreControl();
 			Aeronave [] as = new Aeronave[10];
 			for (int i = 0; i < as.length; i++) {
@@ -42,6 +43,7 @@ public class PruebaTorreControl31 {
 /*
 	public void testAddGetAeronaves(){
 		try {
+			System.out.println("-----testAddGetAeronaves-----");
 			TorreControl tc = new TorreControl();
 			System.out.println("testAddGetAeronaves 0 " + Arrays.toString(tc.getAeronaves())
 			+ "\n***correcto=" + assertArrayEquals(new Aeronave[0], tc.getAeronaves()));
@@ -61,6 +63,7 @@ public class PruebaTorreControl31 {
  
 	public void testAddGetAeronaves2(){
 		try {
+			System.out.println("-----testAddGetAeronaves2-----");
 			TorreControl tc = new TorreControl();
 			Aeronave [] as = new Aeronave[10];
 			for (int i = 0; i < as.length; i++) {
@@ -89,6 +92,7 @@ public class PruebaTorreControl31 {
 
 	public void testAddDeteccion(){
 		try {
+			System.out.println("-----testAddDetection-----");
 			// nueva, hay sitio
 			TorreControl tc = new TorreControl();
 			Aeronave [] as = new Aeronave[10];
@@ -127,6 +131,7 @@ public class PruebaTorreControl31 {
 	
 	public void testGetAmenazadas(){
 		try {
+			System.out.println("-----testGetAmenazadas-----");
 			TorreControl tc = new TorreControl();
 			Aeronave a0 = new Aeronave("AUTO0", new Vector(90,90,100), 9, new Vector(100,100,100), 10);
 			Aeronave a1 = new Aeronave("AUTO1", new Vector(100,410,110), 9, new Vector(100,400,110), 10);

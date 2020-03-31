@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TorreControl {
 	
 	// Constantes
-	private static final int n = 10;
+	private final int N = 10;
 	
 	// Definicion de variables
 	private Aeronave[] detectados;
@@ -13,7 +13,7 @@ public class TorreControl {
 	
 	// Constructor
 	public TorreControl() {
-		this.detectados[n] = null;
+		this.detectados = new Aeronave[N];
 		this.totalDetectadas = 0;
 	}
 	
@@ -26,17 +26,19 @@ public class TorreControl {
 	// Metodo addAeronave
 	public void addAeronave(Aeronave ae) {
 		if (ae != null) {
-			for (int i = 0; i < this.detectados.length; i++) {
-				int posicionAntigua = 0;
-				Aeronave aeronaveAntigua = this.detectados[posicionAntigua];
+			for (int i = 0; i < this.detectados.length;i++) {
 				if (this.detectados[i] == null) {
 					this.detectados[i] = ae;
+					return;
 				} else {
-					if (this.detectados[i].getT() < aeronaveAntigua.getT()) {
-						aeronaveAntigua = this.detectados[i];
-						posicionAntigua = i;
+					int n = 0;
+					double max = this.detectados[0].getT();
+					for(int j = 0; j < this.detectados.length; j++) {
+						if (this.detectados[j] != null && max < this.detectados[j].getT()) {
+							n = j;
+						}
 					}
-				this.detectados[posicionAntigua] = ae;
+					this.detectados[n] = ae;
 				}
 			}
 		}

@@ -46,12 +46,40 @@ public class Bejeweled {
 	}
 	
 	public int maxIguales (int fila) throws Exception {
-		// TODO
-		return 0;
+		if((fila < 0) || (fila >= this.tablero.length)) {
+			throw new Exception("Error en la fila");
+		}
+		int max = 1;
+		int repetidos = 1;
+		for(int i = 1; i < this.tablero[fila].length; i++) {
+			if(this.tablero[fila][i] != this.tablero[fila][i-1]) {
+				repetidos = 1;
+			} else {
+				repetidos++;
+				if (repetidos > max) {
+					max = repetidos;
+				}
+				// System.out.println("Repetidos " + repetidos);
+			}
+		}
+		return max;
 	}
 
 	public void eliminarFila(int fila) throws Exception {
-		// TODO
+		// Comprobar fila
+		if((fila < 0) || (fila >= this.tablero.length)) {
+			throw new Exception("Error en la fila");
+		}
+	
+		// Compactar las filas anteriores
+		for(int i = fila + 1; i < this.tablero.length; i++) {
+			this.copiarFila(i, i-1);
+		}
+		// addUltimaFila mientras sea necesario
+		this.addUltimaFila();
+		while (this.maxIguales(this.tablero.length-1) >= 3) {
+			this.addUltimaFila();
+		}
 	}
 	
 	
