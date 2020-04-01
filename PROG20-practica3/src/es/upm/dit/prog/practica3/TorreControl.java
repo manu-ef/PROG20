@@ -72,7 +72,7 @@ public class TorreControl {
 			}
 		}
 		// Devolvemos el array
-		Aeronave[] aeronavesNull = new Aeronave [0];
+		Aeronave[] aeronavesNull = new Aeronave[0];
 		if (this.detectados == null) {
 			return aeronavesNull;
 		} else {
@@ -84,35 +84,70 @@ public class TorreControl {
 	public Aeronave[] getCompatibles(Vector pos, double t) {
 		int celdas = 0;
 		for (int i = 0; i < this.detectados.length; i++) {
-			if (this.detectados[i] != null) {
+			if (this.detectados[i] != null && this.detectados[i].compatibleCon(pos, t)) {
 				celdas++;
 			}
 		}
-		Aeronave[] aeronaves = new Aeronave[celdas];
+		Aeronave[] compatibles = new Aeronave[celdas];
 		celdas = 0;
 		for (int j = 0; j < this.detectados.length; j++) {
 			if (this.detectados[j] != null && this.detectados[j].compatibleCon(pos, t)) {
-				aeronaves[celdas] = this.detectados[j];
+				compatibles[celdas] = this.detectados[j];
 				celdas++;
 			}
 		}
-		Aeronave[] aeronavesNull = new Aeronave [0];
+		Aeronave[] aeronavesNull = new Aeronave[0];
 		if (this.detectados == null) {
 			return aeronavesNull;
 		} else {
-			return aeronaves;
+			return compatibles;
 		}
 	}
 	
 	// Metodo addDeteccion
 	public void addDeteccion(Vector pos, double t) {
-		
+		if (this.getCompatibles(pos, t).length > 0) {
+			getCompatibles(pos, t)[0].mover(pos, t);
+		} else {
+			Aeronave auto = new Aeronave ("AUTO" + this.totalDetectadas, pos, t, pos, t);
+			this.addAeronave(auto);
+			this.totalDetectadas++;
+		}
+	}
+	
+	// Metodo amenaza
+	private boolean amenaza(Aeronave ae) {
+		boolean amenazada = false;
+		for (int i = 0; i < this.detectados.length; i++) {
+			if (this.detectados[i] != null && amenazada == false) {
+				amenazada = ae.amenazadaPor(this.detectados[i]);
+			}
+		}
+		return amenazada;
 	}
 	
 	// Metodo getAmenazadas
 	public Aeronave[] getAmenazadas() {
-		Aeronave[] ae = new Aeronave[0];
-		return ae;
+		int celdas = 0;
+		for (int i = 0; i < this.detectados.length; i++) {
+			if (this.detectados[i] != null && this.amenaza(this.detectados[i])) {
+				celdas++;
+			}
+		}
+		Aeronave[] amenazadas = new Aeronave[celdas];
+		celdas = 0;
+		for (int j = 0; j < this.detectados.length; j++) {
+			if (this.detectados[j] != null && this.amenaza(this.detectados[j])) {
+				amenazadas[celdas] = this.detectados[j];
+				celdas++;
+			}
+		}
+		Aeronave[] aeronavesNull = new Aeronave[0];
+		if (this.detectados == null) {
+			return aeronavesNull;
+		} else {
+			return amenazadas;
+		}
 	}
 	
 }
