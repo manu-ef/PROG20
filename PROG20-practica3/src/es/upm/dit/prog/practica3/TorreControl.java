@@ -116,7 +116,7 @@ public class TorreControl {
 	}
 	
 	// Metodo amenaza
-	private boolean amenaza(Aeronave ae) {
+	private boolean amenazada(Aeronave ae) {
 		boolean amenazada = false;
 		for (int i = 0; i < this.detectados.length; i++) {
 			if (this.detectados[i] != null && amenazada == false) {
@@ -130,14 +130,14 @@ public class TorreControl {
 	public Aeronave[] getAmenazadas() {
 		int celdas = 0;
 		for (int i = 0; i < this.detectados.length; i++) {
-			if (this.detectados[i] != null && this.amenaza(this.detectados[i])) {
+			if (this.detectados[i] != null && this.amenazada(this.detectados[i])) {
 				celdas++;
 			}
 		}
 		Aeronave[] amenazadas = new Aeronave[celdas];
 		celdas = 0;
 		for (int j = 0; j < this.detectados.length; j++) {
-			if (this.detectados[j] != null && this.amenaza(this.detectados[j])) {
+			if (this.detectados[j] != null && this.amenazada(this.detectados[j])) {
 				amenazadas[celdas] = this.detectados[j];
 				celdas++;
 			}
