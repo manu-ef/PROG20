@@ -119,7 +119,7 @@ public class TorreControl {
 	private boolean amenazada(Aeronave ae) {
 		boolean amenazada = false;
 		for (int i = 0; i < this.detectados.length; i++) {
-			if (this.detectados[i] != null && amenazada == false) {
+			if (this.detectados[i] != null && this.detectados[i] != ae && amenazada == false) {
 				amenazada = ae.amenazadaPor(this.detectados[i]);
 			}
 		}
