@@ -12,11 +12,11 @@ public class SelectorAeronaveAmenazada implements SelectorAeronave {
 		if (otra != null) {
 			boolean ifTrue = false;
 			for (int i = 0; i < this.aeronaves.length; i++) {
-				if(otra.amenazadaPor(this.aeronaves[i]) && otra != this.aeronaves[i]) {
+				if(otra.amenazadaPor(this.aeronaves[i]) && !this.aeronaves[i].equals(otra)) {
 					ifTrue = true;
 					break;
 				} else {
-					ifTrue = false;
+					i++;
 				}
 			}
 			return ifTrue;

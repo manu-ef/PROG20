@@ -8,7 +8,7 @@ public class SelectorAeronaveAmenazaA implements SelectorAeronave {
 	}
 	
 	public boolean seleccionar(Aeronave otra) {
-		if(otra != null && this.a != otra && this.a.amenazadaPor(otra) == true) {
+		if(otra != null && !this.a.equals(otra) && this.a.amenazadaPor(otra) == true) {
 			return true;
 		} else {
 			return false;
